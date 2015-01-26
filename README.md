@@ -59,6 +59,10 @@ History just dispatches an event on the passed in dispatcher, meaning you can in
 
 This integrates seemlessly with any type of dispatcher or event system, you may need to do a thin layer of integration but this history module can be used in any application.
 
+
+`behave-history` has a fantastic feature in modern browsers, any `evt.data` passed to a routing dispatch event will be set using `pushState`, meaning as users navigate backward and forward with the browser buttons, the dispatcher event fired will have a copy of that state at that moment in time. Allowing you to easily recreate previous states of your application. (`evt.state` will be an empty object if using `hashChange` or there is no data associated with current state).
+
+
 ___
 
 
@@ -72,4 +76,5 @@ ___
 ### Release History
 
 - 0.1.0 Initial Release
+- 0.1.1 Updated readme and updated npm keywords
 

@@ -12,7 +12,13 @@
   },
   "keywords": [
     "behave",
-    "behavejs"
+    "behavejs",
+    "history",
+    "routing",
+    "browser history",
+    "application state",
+    "flux",
+    "dispatcher"
   ],
   "author": "kurtiskemple@gmail.com",
   "license": "GPL",
