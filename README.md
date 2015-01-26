@@ -1,6 +1,8 @@
 # behave-history
 A better browser history manager
 
+[ ![Codeship Status for behavejs/behave-history](https://codeship.com/projects/c4e33eb0-8268-0132-f7da-56a1ab730b01/status?branch=master)](https://codeship.com/projects/57870)
+
 In most other frameworks, history management is directly tied to your routers. This violates the single responsibility rule and tightly couples two large components of the application together. Proper history management is now more important than ever, and having routers that you feel comfortable with is equally important. The only requirement to use `behave-history` is that you pass it a `dispatcher` on initialization. (Don't sweat, you don't have to be using the Flux/React style of architecture, there will be examples with other architectural patterns.)
 
 ___
@@ -77,4 +79,5 @@ ___
 
 - 0.1.0 Initial Release
 - 0.1.1 Updated readme and updated npm keywords
+- 0.1.2 Added build badge
 
