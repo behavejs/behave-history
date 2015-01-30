@@ -27,7 +27,6 @@ var BehaveHistory = (function () {
     this._dispatcher = options.dispatcher;
 
     this._dispatcher.register("HistoryService", function (evt) {
-      if (evt.type !== _this._eventType) return;
       if (!evt.options) evt.options = {};
       if (_this._started) _this._update(evt);
     });
@@ -62,6 +61,7 @@ var BehaveHistory = (function () {
     },
     _update: {
       value: function Update(evt) {
+        if (evt.type !== this._eventType) return;
         if (evt.route === this._getFragment()) return;
 
         var url = this._baseUrl + this._root + evt.route;
@@ -72,7 +72,7 @@ var BehaveHistory = (function () {
           this._updateHash(evt.route, !!evt.options.replace);
         }
 
-        this.dispatcher.dispatch({
+        this._dispatcher.dispatch({
           type: "ROUTE_CHANGE",
           route: evt.route,
           data: evt.data,

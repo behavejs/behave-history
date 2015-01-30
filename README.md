@@ -80,5 +80,6 @@ ___
 - 0.1.0 Initial Release
 - 0.1.1 Updated readme and updated npm keywords
 - 0.1.2 Added build badge
-- 0.1.3 moved away from same event for route and route change
+- 0.1.3 Moved away from same event for route and route change
+- 0.1.4 Added new build
 
