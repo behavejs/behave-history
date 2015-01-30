@@ -93,7 +93,7 @@ describe('BehaveHistory', () => {
 
         it('should exit out if `evt.route` matches result of `this._getFragment()`', (done) => {
             var evt = {
-                type: 'ROUTE_CHANGE',
+                type: 'ROUTE',
                 route: 'some/url',
                 data: {test: 'data'},
                 options: {}
@@ -124,7 +124,7 @@ describe('BehaveHistory', () => {
 
         it('should update url to match specified route', (done) => {
             var evt = {
-                type: 'ROUTE_CHANGE',
+                type: 'ROUTE',
                 route: 'some/url',
                 data: {test: 'data'},
                 options: {}
@@ -149,7 +149,7 @@ describe('BehaveHistory', () => {
 
         it('should send any data in event to window state if in supporting browsers', (done) => {
             var evt = {
-                type: 'ROUTE_CHANGE',
+                type: 'ROUTE',
                 route: 'some/url',
                 data: {test: 'data'},
                 options: {}
@@ -188,7 +188,7 @@ describe('BehaveHistory', () => {
 
         it('should update url to match specified route', (done) => {
             var evt = {
-                type: 'ROUTE_CHANGE',
+                type: 'ROUTE',
                 route: 'some/url',
                 data: {test: 'data'},
                 options: {}

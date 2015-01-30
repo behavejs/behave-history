@@ -18,7 +18,7 @@ var BehaveHistory = (function () {
     this._history = window.history;
     this._wantsHashChange = options.hashChange || false;
     this._hasPushState = !!(this._history && this._history.pushState);
-    this._eventType = options.eventType || "ROUTE_CHANGE";
+    this._eventType = options.eventType || "ROUTE";
     this._started = false;
 
     this._baseUrl = this._location.protocol + "//" + this._location.host;
@@ -27,6 +27,7 @@ var BehaveHistory = (function () {
     this._dispatcher = options.dispatcher;
 
     this._dispatcher.register("HistoryService", function (evt) {
+      if (evt.type !== _this._eventType) return;
       if (!evt.options) evt.options = {};
       if (_this._started) _this._update(evt);
     });
@@ -61,7 +62,6 @@ var BehaveHistory = (function () {
     },
     _update: {
       value: function Update(evt) {
-        if (evt.type !== this._eventType) return;
         if (evt.route === this._getFragment()) return;
 
         var url = this._baseUrl + this._root + evt.route;
@@ -71,6 +71,13 @@ var BehaveHistory = (function () {
         } else {
           this._updateHash(evt.route, !!evt.options.replace);
         }
+
+        this.dispatcher.dispatch({
+          type: "ROUTE_CHANGE",
+          route: evt.route,
+          data: evt.data,
+          options: evt.options
+        });
       },
       writable: true,
       enumerable: true,

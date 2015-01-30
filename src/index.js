@@ -8,7 +8,7 @@ class BehaveHistory {
         this._history = window.history;
         this._wantsHashChange = options.hashChange || false;
         this._hasPushState = !!(this._history && this._history.pushState);
-        this._eventType = options.eventType || 'ROUTE_CHANGE';
+        this._eventType = options.eventType || 'ROUTE';
         this._started = false;
 
         this._baseUrl = this._location.protocol +
@@ -46,6 +46,13 @@ class BehaveHistory {
         } else {
             this._updateHash(evt.route, !!evt.options.replace);
         }
+
+        this._dispatcher.dispatch({
+            type: 'ROUTE_CHANGE',
+            route: evt.route,
+            data: evt.data,
+            options: evt.options
+        });
     }
 
     _pushState(data, route, replace) {
